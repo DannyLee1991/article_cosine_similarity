@@ -1,10 +1,10 @@
-from text_reader import gen_article_name_list, get_all_articles, get_article
-from _1_split_artical_to_word_list.segment import text_to_segment_list
-from _2_gen_word_vect.gen_word_vect import gen_word_dict_tuple
-from _3_calc_tfidf.tfidf import calc_tfidf, calc_all_word_tfidf
-from _4_calc_word_tfidf_vect.word_tfidf_vect import gen_text_tfidf_vct
-from _5_calc_vct_angle.calc_vect_angle import calc_vct_angle_cos
 from config import ARTICLE_PATH
+from main.calc_vect_angle import calc_vct_angle_cos
+from main.gen_word_vect import gen_word_dict_tuple
+from main.segment import text_to_segment_list
+from main.text_reader import gen_article_name_list, get_all_articles, get_article
+from main.tfidf import calc_tfidf, calc_all_word_tfidf
+from main.word_tfidf_vect import gen_text_tfidf_vct
 from utils.log import line, block
 
 # 1.输出全部的文件名

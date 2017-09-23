@@ -2,19 +2,19 @@
 
 使用步骤：
 
-- 1.配置`config.py`中的缓存目录`CACHE_PATH`（默认值是'./cache'）以及文本数据目录`ARTICLE_PATH`（默认值是'./data/article'）:
+- 1.配置`config.py`中的缓存目录`CACHE_PATH`（默认值是'./_cache'）以及文本数据目录`ARTICLE_PATH`（默认值是'./_data/article'）:
 
 ``` python
 # 设置缓存目录
-CACHE_PATH = project_dir + os.path.sep + "cache"
+CACHE_PATH = project_dir + os.path.sep + "_cache"
 
 # 设置文本目录
-ARTICLE_PATH = project_dir + os.path.sep + "data/article"
+ARTICLE_PATH = project_dir + os.path.sep + "_data/article"
 ```
 
 - 2.在文本目录下填充一些待训练的英文文本数据。目前默认有26片文章，可自行增添或者删除。
 
-- 3.运行`pipline/main.py`，即可开始训练数据。最终会获取到一个已经排好序的列表：
+- 3.运行`pipline.py`，即可开始训练数据。最终会获取到一个已经排好序的列表：
 
 ```
 [('11', '12', 0.9994788059135834), ('12', '11', 0.9994788059135834),...]

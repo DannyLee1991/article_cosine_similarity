@@ -1,9 +1,9 @@
 import math
 
-from _1_split_artical_to_word_list.segment import text_to_segment_list
-
-from text_reader import get_all_articles
+from main.segment import text_to_segment_list
+from main.text_reader import get_all_articles
 from utils.cache import cache
+
 
 @cache(use_mem=True,use_file=True)
 def calc_idf(target_word, path):

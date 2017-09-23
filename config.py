@@ -4,7 +4,7 @@ import os
 project_dir = os.path.dirname(os.path.realpath(__file__))
 
 # 设置缓存目录
-CACHE_PATH = project_dir + os.path.sep + "cache"
+CACHE_PATH = project_dir + os.path.sep + "_cache"
 
 # 设置文本目录
-ARTICLE_PATH = project_dir + os.path.sep + "data/article"
+ARTICLE_PATH = project_dir + os.path.sep + "_data/article"

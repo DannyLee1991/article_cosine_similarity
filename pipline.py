@@ -1,9 +1,8 @@
-from _4_calc_word_tfidf_vect.word_tfidf_vect import gen_text_tfidf_vct
-from _5_calc_vct_angle.calc_vect_angle import calc_vct_angle_cos
-
-from text_reader import get_article_name_by_index, get_all_articles
-from utils.cache import cache
 from config import ARTICLE_PATH
+from main.calc_vect_angle import calc_vct_angle_cos
+from main.text_reader import get_article_name_by_index, get_all_articles
+from main.word_tfidf_vect import gen_text_tfidf_vct
+from utils.cache import cache
 
 
 @cache(print_log=False)

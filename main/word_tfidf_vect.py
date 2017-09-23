@@ -1,8 +1,8 @@
 import numpy as np
-from _2_gen_word_vect.gen_word_vect import gen_word_dict_tuple
-from _3_calc_tfidf.tfidf import calc_tfidf
+from main.gen_word_vect import gen_word_dict_tuple
+from main.segment import text_to_segment_list
 
-from _1_split_artical_to_word_list.segment import text_to_segment_list
+from main.tfidf import calc_tfidf
 from utils.cache import cache
 
 
