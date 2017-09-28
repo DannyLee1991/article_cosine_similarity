@@ -6,7 +6,7 @@ from utils.cache import cache
 
 
 @cache(use_mem=True,use_file=True)
-def calc_idf(target_word, path):
+def calc_idf(target_word):
     '''
     计算idf值
     :param target_word: 目标词
@@ -14,7 +14,7 @@ def calc_idf(target_word, path):
     '''
     article_count = 0
     target_article_count = 0
-    for txt in get_all_articles(path=path):
+    for txt in get_all_articles():
         article_count += 1
         segm_list = text_to_segment_list(txt)
         if target_word in segm_list:
@@ -40,7 +40,7 @@ def calc_tf(text, target_word):
 
 
 # @cache(use_mem=True)
-def calc_tfidf(text, target_word, path):
+def calc_tfidf(text, target_word):
     '''
     计算TF-IDF
     :param text:
@@ -48,11 +48,11 @@ def calc_tfidf(text, target_word, path):
     :return:
     '''
     tf = calc_tf(text, target_word)
-    idf = calc_idf(target_word, path=path)
+    idf = calc_idf(target_word)
     return tf * idf
 
 
-def calc_all_word_tfidf(text,path):
+def calc_all_word_tfidf(text):
     '''
     计算文本的所有的词的TF-IDF 并且按照TF-IDF从大到小的顺序排序
     :param text:
@@ -61,7 +61,7 @@ def calc_all_word_tfidf(text,path):
     segm_set = set(text_to_segment_list(text))
     word_tfidf_list = []
     for segm in segm_set:
-        tfidf = calc_tfidf(text, segm,path=path)
+        tfidf = calc_tfidf(text, segm)
         word_tfidf_list.append((segm, tfidf))
     return sorted(word_tfidf_list, key=lambda item: item[1], reverse=True)
 
