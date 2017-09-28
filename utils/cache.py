@@ -2,8 +2,8 @@
 import pickle, os, hashlib
 from config import CACHE_PATH
 
-
 mem_cache = {}
+
 
 # 写入文件缓存
 def write_file_cache(cache_name, cache):
@@ -41,9 +41,18 @@ def cache(use_mem=False, use_file=True, print_log=False, cache_path=CACHE_PATH):
         cache_file = cache_path + os.path.sep + func.__name__
 
         def wrapper(*args, **kwargs):
-            args_str = "_args"
-            for arg in args:
-                args_str += "-" + md5(arg)
+            args_str = ""
+
+            if args:
+                args_str += "_args:"
+                for arg in args:
+                    args_str += "|" + md5(arg)
+
+            if kwargs:
+                args_str += "_kwargs:"
+                for k in kwargs.keys():
+                    args_str += "(" + k + "-" + md5(kwargs.get(k)) + ")"
+
             # 带有参数的缓存文件名称
             cache_file_with_args = cache_file + args_str
             # 使用内存缓存

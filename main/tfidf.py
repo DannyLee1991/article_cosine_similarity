@@ -1,7 +1,7 @@
 import math
 
+from main.data_reader.article_reader import get_all_articles
 from main.segment import text_to_segment_list
-from main.text_reader import get_all_articles
 from utils.cache import cache
 
 

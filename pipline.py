@@ -1,6 +1,6 @@
 from config import ARTICLE_PATH
 from main.calc_vect_angle import calc_vct_angle_cos
-from main.text_reader import get_article_name_by_index, get_all_articles
+from main.data_reader.article_reader import get_article_name_by_index, get_all_articles
 from main.word_tfidf_vect import gen_text_tfidf_vct
 from utils.cache import cache
 
@@ -17,7 +17,7 @@ def calc_all_article_cos(path):
     for index, atc_txt_1 in enumerate(all_article):
         print("总体进度 %d/%d" % (index, len(all_article)))
 
-        vct_1 = gen_text_tfidf_vct(atc_txt_1, path=path)
+        vct_1 = gen_text_tfidf_vct(atc_txt_1, path=path, extra_stopwords=True)
 
         id_1 = all_article.index(atc_txt_1)
         atc_name_1 = get_article_name_by_index(id_1, path=path)
@@ -28,7 +28,7 @@ def calc_all_article_cos(path):
                 continue
             else:
 
-                vct_2 = gen_text_tfidf_vct(atc_txt_2, path=path)
+                vct_2 = gen_text_tfidf_vct(atc_txt_2, path=path, extra_stopwords=True)
 
                 cos = calc_vct_angle_cos(vct_1, vct_2)
 
