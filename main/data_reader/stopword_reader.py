@@ -1,6 +1,6 @@
 from utils.cache import cache
 from main.segment import text_to_segment_list
-from config import STOPWORDS_FILE_PATH
+from config import STOPWORDS_FILE_PATH,IS_EXTRA_STOP_WORD
 
 
 @cache(use_mem=True, use_file=True)
@@ -11,7 +11,8 @@ def get_stop_word_list():
     :return:
     '''
     stopwords = []
-    with open(STOPWORDS_FILE_PATH, 'r', encoding='utf-8') as txt:
-        for line in txt.readlines():
-            stopwords.append(text_to_segment_list(line)[0])
+    if IS_EXTRA_STOP_WORD:
+        with open(STOPWORDS_FILE_PATH, 'r', encoding='utf-8') as txt:
+            for line in txt.readlines():
+                stopwords.append(text_to_segment_list(line)[0])
     return stopwords

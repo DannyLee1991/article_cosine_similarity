@@ -11,3 +11,6 @@ ARTICLE_PATH = project_dir + os.path.sep + "_data/article"
 
 # 设置停用词文本目录
 STOPWORDS_FILE_PATH = project_dir + os.path.sep + "_data/stopwords/stop_words_eng.txt"
+
+# 是否抽取停用词
+IS_EXTRA_STOP_WORD = True

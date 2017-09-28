@@ -5,12 +5,12 @@ from utils.cache import cache
 
 
 @cache(use_mem=True)
-def gen_word_dict_list(extra_stopwords=False):
-    if extra_stopwords:
-        stopwords_list = get_stop_word_list()
-        return gen_extra_stopwords_word_dict_list(stopwords_list)
-    else:
-        return origin_word_dict_list()
+def gen_word_dict_list():
+    '''
+    生成去停用词后的字典集合
+    :return:
+    '''
+    return gen_extra_stopwords_word_dict_list(get_stop_word_list())
 
 
 def origin_word_dict_list():

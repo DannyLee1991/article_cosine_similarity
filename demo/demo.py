@@ -28,14 +28,8 @@ seg_list = text_to_segment_list(txt)
 print(seg_list)
 block(' ')
 
-line("根据指定目录下的文本，生成总词典list（去重且顺序不变）")
-word_dict_list = gen_word_dict_list()
-print(word_dict_list)
-print("字典长度 %d " % len(word_dict_list))
-block(' ')
-
 line("根据指定目录下的文本，生成去停用词后的词典list")
-extra_stopwords_word_dict_list = gen_word_dict_list(extra_stopwords=True)
+extra_stopwords_word_dict_list = gen_word_dict_list()
 print(extra_stopwords_word_dict_list)
 print("去停用词后字典长度 %d " % len(extra_stopwords_word_dict_list))
 block(' ')
@@ -54,15 +48,15 @@ block(' ')
 
 line("计算指定文章的TF-IDF词向量")
 txt = get_all_articles()[0]
-tfidf_vct = gen_text_tfidf_vct(txt, extra_stopwords=True)
+tfidf_vct = gen_text_tfidf_vct(txt)
 print(tfidf_vct)
 block(' ')
 
 line("计算第一篇和第二篇文章的向量夹角余弦值")
 txt_0 = get_all_articles()[0]
 txt_1 = get_all_articles()[1]
-tfidf_vct_0 = gen_text_tfidf_vct(txt_0, extra_stopwords=True)
-tfidf_vct_1 = gen_text_tfidf_vct(txt_1, extra_stopwords=True)
+tfidf_vct_0 = gen_text_tfidf_vct(txt_0)
+tfidf_vct_1 = gen_text_tfidf_vct(txt_1)
 cos = calc_vct_angle_cos(tfidf_vct_0, tfidf_vct_1)
 print(cos)
 block(' ')

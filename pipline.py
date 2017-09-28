@@ -16,7 +16,7 @@ def calc_all_article_cos():
     for index, atc_txt_1 in enumerate(all_article):
         print("总体进度 %d/%d" % (index, len(all_article)))
 
-        vct_1 = gen_text_tfidf_vct(atc_txt_1, extra_stopwords=True)
+        vct_1 = gen_text_tfidf_vct(atc_txt_1)
 
         id_1 = all_article.index(atc_txt_1)
         atc_name_1 = get_article_name_by_index(id_1)
@@ -27,7 +27,7 @@ def calc_all_article_cos():
                 continue
             else:
 
-                vct_2 = gen_text_tfidf_vct(atc_txt_2, extra_stopwords=True)
+                vct_2 = gen_text_tfidf_vct(atc_txt_2)
 
                 cos = calc_vct_angle_cos(vct_1, vct_2)
 
